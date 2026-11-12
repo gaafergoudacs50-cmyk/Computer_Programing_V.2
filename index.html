@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Computer Processing Technology – Study Notebook</title>
+<style>
+:root{--paper:#fffdf5;--line:#cfe3f1;--ink:#26304a;--red:#d4533b;--hand:"Segoe Print","Bradley Hand","Chalkboard SE","Comic Sans MS","Marker Felt",cursive;--body:Georgia,"Times New Roman",serif}
+@media(prefers-color-scheme:dark){:root{--paper:#1f2233;--line:#2d3350;--ink:#e8e6dc;--red:#ff8a70}}
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--body);color:var(--ink);line-height:1.7;background:var(--paper);background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:28px 28px}
+header{position:sticky;top:0;z-index:5;background:var(--paper);border-bottom:3px double var(--red);padding:8px 10px}
+h1,h2,h3{font-family:var(--hand);margin:.4em 0}
+h1{font-size:1.3rem;margin:0}
+nav{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+nav button{font-family:var(--hand);font-size:.8rem;border:2px solid var(--ink);background:transparent;color:var(--ink);border-radius:10px 4px 10px 4px;padding:4px 8px;cursor:pointer;transition:.2s}
+nav button:hover{transform:rotate(-2deg)}nav button.on{background:var(--red);color:#fff;border-color:var(--red)}nav button.hit{outline:3px solid #e0a21a}#srch{font:inherit;font-family:var(--hand);width:100%;margin-top:6px;padding:4px 8px;border:2px solid var(--ink);border-radius:8px;background:var(--paper);color:var(--ink)}nav button.done::after{content:" ✓"}
+#bar{height:8px;border:2px solid var(--ink);border-radius:6px;margin-top:6px;overflow:hidden}#fill{height:100%;width:0;background:var(--red);transition:width .5s}
+main{max-width:860px;margin:auto;padding:14px}
+section{display:none;animation:in .4s}section.on{display:block}
+@keyframes in{from{opacity:0;transform:translateY(10px)}to{opacity:1}}
+.box{border:2px solid;border-radius:8px 14px 8px 14px;padding:8px 14px;margin:12px 0;background:var(--paper)}
+.def{border-color:#3b82c4}.ex{border-color:#3fa56b}.note{border-color:#e0a21a}.warn{border-color:#d4533b}
+.box b.t{font-family:var(--hand)}
+table{border-collapse:collapse;width:100%;margin:10px 0;background:var(--paper)}td,th{border:2px solid var(--ink);padding:4px 8px;text-align:left;font-size:.95rem}th{font-family:var(--hand)}
+code,pre{font-family:Consolas,monospace;background:rgba(120,120,120,.15);border-radius:4px}code{padding:0 4px}pre{padding:10px;overflow-x:auto}
+.q{border:2px dashed var(--ink);border-radius:10px;padding:10px 14px;margin:12px 0;background:var(--paper)}
+.opt{display:block;width:100%;text-align:left;margin:5px 0;padding:6px 10px;border:2px solid var(--ink);border-radius:8px;background:transparent;color:var(--ink);font:inherit;cursor:pointer}
+.opt:hover:not(:disabled){background:rgba(212,83,59,.12)}.opt.ok{background:#3fa56b;color:#fff;border-color:#3fa56b}.opt.bad{background:#d4533b;color:#fff}
+.exp{display:none;font-size:.92rem;margin-top:6px;padding:6px;border-left:4px solid var(--red)}
+.btn{font-family:var(--hand);font-size:1rem;border:2px solid var(--ink);border-radius:10px;background:var(--red);color:#fff;padding:6px 16px;cursor:pointer}
+details{border:2px solid var(--ink);border-radius:8px;margin:10px 0;padding:6px 12px;background:var(--paper)}summary{cursor:pointer;font-family:var(--hand);font-weight:bold}
+svg{max-width:100%}svg text{fill:var(--ink);font:13px sans-serif}svg *{stroke:var(--ink)}svg text{stroke:none}
+.score{font-family:var(--hand);font-size:1.4rem;text-align:center}
+.hero{text-align:center;padding:20px 0}.hero h2{font-size:2rem;transform:rotate(-1.5deg)}
+</style></head><body>
+<header><h1>📓 Computer Processing Technology – Whole Book</h1>
+<nav id="nav"></nav><input id="srch" placeholder="🔍 Search the whole book (Enter = open first match)"><div id="bar"><div id="fill"></div></div></header>
+<main>
+<section id="s0"><div class="hero"><h2>Computer Processing Technology</h2><p>Ch1 Flowcharts · Ch2 Beginning with C · Ch3 Control Statements · Ch4 Loops · Ch5 C++<br>Read → Practise → Test → Revise</p></div>
+<div class="box def"><b class="t">How to use</b><br>Use the tabs above. Read each chapter, take its quiz, answer the written questions, then try the C tasks. The bar tracks the sections you have visited. Everything works offline.</div>
+<div class="box note"><b class="t">Colour key</b><br>🔵 Definition · 🟢 Example · 🟡 Remember · 🔴 Warning</div></section>
+
+<section id="s1"><h2>Chapter 1 – Problem Solving and Flowcharts</h2>
+<h3>1.1 Problem solving</h3>
+<p>To make a computer solve a problem, the programmer must prepare a method and a detailed procedure. Problem solving involves:</p>
+<ul><li>Detailed study and redefinition of the problem</li><li>Identifying input data, output requirements, conditions and limitations</li><li>Finding alternative methods and selecting the most suitable one</li><li>Preparing a list of procedures and steps to get the solution</li><li>Generating the output</li></ul>
+<div class="box def"><b class="t">Algorithm:</b> a sequence of instructions designed so that, if executed in a specific sequence, the desired result is obtained.</div>
+<h3>1.2 Flowcharts</h3>
+<div class="box def"><b class="t">Flowchart:</b> a symbolic representation of a solution to a given task. It is drawn <i>before</i> coding, can be made for practically any job, and helps trace and detect logical errors before the program is written.</div>
+<h3>1.3 Types of flowcharts</h3>
+<table><tr><th>Program flowchart</th><th>System flowchart</th></tr><tr><td>Used by <b>programmers</b>. Shows program structure, logic flow, inputs, processing, calculations, decision conditions, branching/looping and outputs. Emphasis is on <b>logic</b>. Part of system documentation.</td><td>Used by <b>system analysts</b>. Shows processes, sub-systems, outputs and operations on data in a system.</td></tr></table>
+<h3>1.4 Flowchart symbols</h3>
+<p>Symbols are standardised by ANSI (American National Standards Institute). Flowcharts are independent of the programming language, so you concentrate on logic first and on coding afterwards. Boxes are joined by solid lines with arrowheads.</p>
+<svg viewBox="0 0 640 150" width="640"><g fill="none" stroke-width="2"><rect x="10" y="30" width="90" height="36" rx="18"/><path d="M130 66l12-36h88l-12 36z"/><rect x="260" y="30" width="90" height="36"/><path d="M425 20l45 25-45 25-45-25z"/><circle cx="530" cy="45" r="16"/><path d="M570 45h50m-10-6l10 6-10 6"/></g>
+<text x="25" y="52">START/STOP</text><text x="148" y="52">Input/Output</text><text x="280" y="52">Process</text><text x="400" y="50">Decision</text><text x="515" y="50">A</text><text x="500" y="85">Connector</text><text x="570" y="85">Flowline</text><text x="20" y="110">Terminal</text></svg>
+<table><tr><th>Symbol</th><th>Use</th></tr>
+<tr><td>Terminal</td><td>Start and stop. Only <b>one START and one STOP</b> in a flowchart; a pause is also shown with it.</td></tr>
+<tr><td>Input/Output</td><td>Any input (keyboard, etc.) or output (printer, monitor, disk, etc.).</td></tr>
+<tr><td>Process</td><td>Arithmetic and data movement. Several processes can be in one box, top to bottom in order.</td></tr>
+<tr><td>Decision</td><td>A point where a decision is made and branching follows the result. The criterion is written inside; <b>all possible paths must be accounted for</b>.</td></tr>
+<tr><td>Flowlines</td><td>Solid lines with arrowheads showing the exact order. Normal flow is top to bottom and left to right.</td></tr>
+<tr><td>Connector</td><td>A circle with a letter or digit. Identically labelled connectors link parts of a big or multi-page flowchart. A connector is not an operation.</td></tr></table>
+<div class="box note"><b class="t">Rules for symbols:</b> do not change the shape; size may change; symbol must be easily recognised; details must be legible; flowlines should not cross.</div>
+<h3>1.5 Developing flowcharts</h3>
+<p>Consider: define the problem; identify the steps; determine input and output parameters; get expected input values and output result; determine the computations and decisions.</p>
+<div class="box ex"><b class="t">Example – add two numbers:</b> Start → Get N1, N2 → N1+N2 → Print result → Stop.<br><b class="t">Greatest of two:</b> Start → Get A, B → decision A &gt; B? yes: print A, no: print B → Stop. Inputs of the same kind can share one box.</div>
+<h3>1.6 Techniques</h3>
+<p><b>Computations:</b> create variables (memvars), read data, calculate, print. Example: Celsius to Fahrenheit (create F, C; read C; compute F; print F). Inches to centimetres works the same way.</p>
+<p><b>Decision making:</b> test the condition; true → "Yes" steps, false → "No" steps. Uses relational operators (equal/unequal) and logical operators (combine expressions). Constructs: If, If-else-endif, If-elseif-endif, Do case, Switch.</p>
+<div class="box ex"><b class="t">Pass/fail example:</b> read m1, m2, m3. Pass if all marks &gt;= 35, else fail. Alternative: one test <code>m1&gt;=35 and m2&gt;=35 and m3&gt;=35</code> with AND.</div>
+<p><b>Loops:</b> repeated use of steps. <b>Fixed loop</b> – repeated a fixed number of times. <b>Variable loop</b> – repeated until a condition is met, so the count can vary. A loop includes: set and initialise a counter, execute operations, test for completion, increment the counter. Loop constructs: do-while, while, for, for-next.</p>
+<div class="box ex"><b class="t">Sum of first N numbers:</b> S=0, I=1 → repeat: S=S+I, I=I+1 while I &lt;= N → print S. <br><b class="t">Is the character Z?</b> read C; if C is not 'Z' read again; if 'Z' print END.</div>
+<div class="box warn">The notes say "if no go to step 6" after the test I&lt;=N; the loop returns to step 6 while I&lt;=N is <b>true</b>.</div>
+<p><b>Predefined process:</b> listed as an advanced technique in the chapter summary.</p></section>
+
+<section id="s2"><h2>Chapter 1 – MCQ Quiz</h2><div id="q1"></div></section>
+<section id="s3"><h2>Chapter 1 – Written Questions</h2><div id="w1"></div></section>
+
+<section id="s4"><h2>Chapter 2 – Introduction to C Programming</h2>
+<h3>2.1 About C</h3>
+<div class="box def">C was developed at AT&amp;T's Bell Laboratories, USA, in <b>1972</b>, designed by <b>Dennis Ritchie</b>. Unix was developed there at about the same time and is written almost entirely in C.</div>
+<ul><li>Robust, with a rich set of built-in functions; simple to learn and use</li><li>Suitable for system software, application programs and business packages</li><li>Lies between high-level and low-level languages</li><li>Highly portable: programs run on other computers with little or no change</li><li>Only <b>32 keywords</b>; a C program is a collection of functions</li></ul>
+<h3>2.2 First program</h3>
+<pre>main()
+{
+  /* The First C program */
+  printf("\nMy first C program");
+}</pre>
+<ul><li><code>main()</code> is where execution begins; every program needs it. Parentheses are required.</li><li><code>{ }</code> mark the start and end of the function body.</li><li><code>/* ... */</code> are comments, ignored by the compiler, may span lines, may not be nested.</li><li><code>printf</code> is a predefined function for output. <code>\n</code> starts a new line.</li><li>Every statement ends with a <b>semicolon</b>. Write in lowercase; uppercase is for symbolic constants.</li></ul>
+<div class="box ex"><b class="t">Running a program:</b> write it and save with <code>.c</code> → compile (syntax errors are reported and compilation stops) → object file <code>.obj</code> → link → executable <code>.exe</code> → run by typing its name.</div>
+<h3>2.3 Character set and tokens</h3>
+<p>Characters: letters A–Z, a–z; digits 0–9; special symbols; white spaces (blank, tab, new line, form feed, carriage return). White space cannot be placed inside keywords or identifiers.</p>
+<div class="box def"><b class="t">Token:</b> the smallest unit in a C program. Types: keywords, identifiers, constants, strings, special symbols, operators.</div>
+<p><b>Keywords</b> have fixed meanings (reserved words), cannot be used as variable names and are written in lowercase. <b>Identifiers</b> are user-defined names for variables, functions and arrays.</p>
+<h3>2.4 Constants</h3>
+<table><tr><th>Kind</th><th>Rules / examples</th></tr>
+<tr><td>Integer</td><td>Digits only, no decimal point, no spaces, commas or non-digits. Valid: 3543, -89022, 0, +58. Invalid: 23,487, $550, 3 333. Octal: leading 0 (044). Hexadecimal: 0x or 0X (0x450). 16-bit range: -32,768 to 32,767. Qualifiers: u, L, UL.</td></tr>
+<tr><td>Real</td><td>Must have a decimal point: 35.89, -0.987. Exponential form <code>mantissa e exponent</code>: 3.2e4, 4.8e-2, -43e+3.</td></tr>
+<tr><td>Character</td><td>One character in single quotes: '4', 'A', '^'. Has an ASCII integer value. '4' is not the number 4.</td></tr>
+<tr><td>String</td><td>Characters in double quotes: "Good Morning". 'W' is not equal to "W".</td></tr></table>
+<p><b>Escape sequences:</b> <code>\a</code> alert, <code>\b</code> backspace, <code>\f</code> form feed, <code>\n</code> new line, <code>\r</code> carriage return, <code>\t</code> tab, <code>\v</code> vertical tab, <code>\?</code> question mark, <code>\\</code> backslash, <code>\0</code> null.</p>
+<h3>2.5 Variables</h3>
+<div class="box def"><b class="t">Variable:</b> a data name for a memory location. Its value can change during execution (a constant cannot).</div>
+<p>Names: letters, digits, underscores; the first character must be a letter; no commas or blanks; not a keyword; <b>case sensitive</b> (<code>sum</code> ≠ <code>SUM</code>). Valid: Max_length, age, a1, T1.</p>
+<h3>2.6 Instructions and data types</h3>
+<p>Four kinds: type declaration, input/output, arithmetic, control. Primary types:</p>
+<table><tr><th>Type</th><th>Details</th></tr><tr><td>int</td><td>Whole numbers; usually 2 bytes; -32,768 to 32,767 (16-bit). The sixteenth bit is the sign (0 positive, 1 negative).</td></tr><tr><td>float</td><td>Real numbers; 4 bytes (32 bits); 6 digits of precision.</td></tr><tr><td>char</td><td>One character; 1 byte; signed -128 to 127; unsigned char 0 to 255.</td></tr><tr><td>double</td><td>Double-precision floating point.</td></tr></table>
+<p><b>Declaration:</b> <code>data_type v1, v2;</code> e.g. <code>int a; char first; float percent, avg;</code>. Declare before use, usually at the top. <b>Initialisation:</b> <code>int i = 10;</code> and multiple assignment <code>a = b = c = 1;</code>.</p>
+<p><b>Arithmetic instruction:</b> <code>variable = expression;</code> – the variable is on the <b>left</b> and every operator must be written (<code>p = q*r</code>, not <code>p = qr</code>). Chars use ASCII values in arithmetic. ASCII: 0–9 = 48–57, A–Z = 65–90, a–z = 97–122.</p>
+<h3>2.7 Operators</h3>
+<table><tr><th>Group</th><th>Operators</th></tr><tr><td>Arithmetic</td><td>+ - * / % (priority: * / % high, + - low, = last; parentheses first, innermost first)</td></tr><tr><td>Relational</td><td>&lt; &lt;= &gt; &gt;= == != (result 1 true, 0 false; arithmetic is done first)</td></tr><tr><td>Logical</td><td>&amp;&amp; (AND), || (OR), ! (NOT); result 0 or 1</td></tr><tr><td>Assignment</td><td>=</td></tr><tr><td>Increment/decrement</td><td>++ and -- (unary)</td></tr><tr><td>Conditional</td><td><code>exp1 ? exp2 : exp3</code></td></tr><tr><td>Bitwise</td><td>&amp; AND, | OR, ^ XOR, &lt;&lt; &gt;&gt; shifts, ~ one's complement (not for float/double)</td></tr><tr><td>Special</td><td>comma, sizeof</td></tr></table>
+<div class="box ex"><b class="t">Arithmetic types:</b> integer op integer = integer (p=10, q=4: p/q = 2 because the decimal part is cut; p%q = 2); real op real = real; mixed integer and real = real (9/4 with both ints gives 2, but 9/4.0 gives 1.75). <code>%</code> cannot be used with real operands. 4/7 with integers is 0.</div>
+<div class="box warn">The notes print "p % q = 5" for p=10, q=4; the remainder of 10 ÷ 4 is actually <b>2</b>.</div>
+<div class="box ex"><b class="t">++a vs a++:</b> a=5; b=++a gives b=6 (increment first). a=5; b=a++ gives b=5, then a becomes 6. <br><b class="t">Conditional:</b> a=10, b=5: <code>z=(a&gt;b)?a:b</code> gives z=10 because a&gt;b is true. <br><b class="t">Comma:</b> <code>z=(a=10,b=2,a-b)</code> gives z=8. <b>sizeof</b> returns the bytes an operand uses.</div>
+<table><tr><th>AND</th><th>E1</th><th>E2</th><th>Result</th></tr><tr><td></td><td>non-0</td><td>non-0</td><td>1</td></tr><tr><td></td><td>non-0</td><td>0</td><td>0</td></tr><tr><td></td><td>0</td><td>0</td><td>0</td></tr></table>
+<p>OR gives 1 if at least one side is non-zero, 0 only when both are 0.</p>
+<h3>2.8 Input, output and symbolic constants</h3>
+<p><code>printf("format", list)</code>: <code>%d</code> int, <code>%f</code> float, <code>%c</code> char. <code>scanf("%f", &amp;len);</code> reads input; always put <b>&amp;</b> before the variable; separate several values with white space.</p>
+<div class="box ex"><b class="t">Area of rectangle:</b> len=4.5, breadth=2.8 → area = 12.599999 (printed with %f).<br><b class="t">Two-digit sum:</b> c=a/10; b=a%10; sum=c+b (83 → 11).</div>
+<div class="box def"><b class="t">Symbolic constant:</b> <code>#define PI 3.14</code>. Not a variable and not declared; usually uppercase; defined before use; no space between # and define; <b>no semicolon</b>; its type depends on its value.</div></section>
+
+<section id="s5"><h2>Chapter 2 – MCQ Quiz</h2><div id="q2"></div></section>
+<section id="s6"><h2>Chapter 2 – Written Questions</h2><div id="w2"></div></section>
+<section id="s7"><h2>C Programming Tasks</h2><p>Easy to harder. Style follows the notes (<code>main()</code> with <code>printf</code>/<code>scanf</code>).</p><div id="tasks"></div></section>
+<section id="s8"><h2>Chapter 3 – Control Statements</h2>
+<div class="box def"><b class="t">Decision control:</b> changing the order of execution depending on conditions, so one set of instructions runs in one situation and a different set in another. C's decision instructions: <code>if</code>, <code>switch</code>, the conditional operator and <code>goto</code>.</div>
+<h3>3.1 The if statement</h3>
+<p>The test condition goes in parentheses after <code>if</code> (usually with relational operators &lt; &lt;= &gt; &gt;= == !=). True: the statement(s) run. False: they are skipped. That is two-way branching.</p>
+<pre>if (test condition)
+{
+  statement block;
+}
+statement-a;</pre>
+<div class="box warn">Several statements after <code>if</code> must be inside braces { }; without braces only the first statement belongs to the if. After the block, <code>statement-a</code> always runs.</div>
+<div class="box ex"><b class="t">Even number:</b> <code>if (num % 2 == 0) { printf("The number is even"); }</code>. Input 20 prints the message; input 3 skips it.</div>
+<h3>3.2 if-else</h3>
+<pre>if (test condition) { if block } else { else block }
+statement-a;</pre>
+<p>Exactly one block runs (if block or else block), then control goes to statement-a. Example: <code>if (marks &gt;= 40) pass else fail</code>; <code>if (num % 2 == 0) even else odd</code>.</p>
+<h3>3.3 Nested if-else</h3>
+<p>An if-else placed inside an if or else block; there is no limit to nesting. If condition 1 is true, condition 2 is tested (block-1 or block-2); if condition 1 is false, block-3 runs.</p>
+<div class="box ex"><b class="t">Marks:</b> <code>if (marks &lt; 75) { if (marks &gt;= 60) first class else second class } else distinction</code>.<br><b class="t">Characters:</b> <code>isalpha(ch1)</code> and <code>isdigit(ch1)</code> need <code>#include &lt;ctype.h&gt;</code>; <code>getchar()</code> reads a character.</div>
+<h3>3.4 The if-else ladder</h3>
+<pre>if (condition_1) statement_1;
+else if (condition_2) statement_2;
+else if (condition_3) statement_3;
+else default;
+statement-a;</pre>
+<p>Used for multipath decisions. Conditions are tested top-down; at the first true one its block runs and control leaves the ladder. If all are false, the final <code>else</code> (default) runs. Many nested levels become hard to read and debug.</p>
+<h3>3.5 Logical operators with if</h3>
+<p>&amp;&amp; (AND), || (OR), ! (NOT) join conditions and avoid long nests. Grades: <code>if ((per&gt;=50) &amp;&amp; (per&lt;60)) printf("Second Class");</code> with First &gt;= 60, Second 50–59, Pass 40–49, Fail &lt; 40. Greatest of three: <code>if ((a&gt;b) &amp;&amp; (a&gt;c))</code> a; else <code>if ((b&gt;a) &amp;&amp; (b&gt;c))</code> b; else c (100, 150, 5 gives b).</p>
+<table><tr><th>Priority (high to low)</th><th>Operators</th></tr><tr><td>1</td><td>! (NOT)</td></tr><tr><td>2</td><td>* / %</td></tr><tr><td>3</td><td>+ -</td></tr><tr><td>4</td><td>&lt; &lt;= &gt; &gt;= (relational)</td></tr><tr><td>5</td><td>== !=</td></tr><tr><td>6</td><td>&amp;&amp;</td></tr><tr><td>7</td><td>||</td></tr><tr><td>8</td><td>= (assignment)</td></tr></table>
+<h3>3.6 The switch statement</h3>
+<pre>switch (integer expression)
+{
+  case constant-1: statement block-1; break;
+  case constant-2: statement block-2; break;
+  default: default block; break;
+}
+statement-a;</pre>
+<ul><li>The expression must give an integer value; each case constant (integer or character) must be different.</li><li>The expression is matched with each case in turn; <code>break</code> leaves the switch.</li><li><code>default</code> is optional and runs when nothing matches.</li><li>Cases with several statements need no braces.</li></ul>
+<div class="box warn"><b>Without break</b> the program runs the matched case AND all following cases and the default (fall-through). The menu example uses this on purpose: <code>case 'F': case 'f': ...</code> so both letter cases work.</div>
+<div class="box ex"><b>Grade codes:</b> 1 Distinction, 2 First Class, 3 Second Class, 4 Fail, default "Result Declared"; input 4 prints Fail. Switch is often used for menu selection.</div>
+<h3>3.7 The conditional operator</h3>
+<p>Listed in the chapter contents; the form is <code>exp1 ? exp2 : exp3</code> (see Chapter 2).</p>
+<h3>3.8 The goto statement</h3>
+<pre>goto label;
+ ...
+label:
+  statement-1;</pre>
+<p>Unconditional jump. The label is any valid variable name followed by a colon where control lands; it may be before or after the goto. <code>exit</code> ends the program. An unconditional goto loop (e.g. read x, square it, goto again) never ends.</p>
+<div class="box warn">Avoid goto: programs become unreadable and hard to debug; if, for, while and switch can replace it.</div>
+<div class="box note">PDF slips: the grade ladder prints ranges overlapping at 50 and 60 (use &gt;= 60, &gt;= 50, &gt;= 40 in order); the pass program says "greater than 40" but tests <code>&gt;= 40</code>.</div></section>
+<section id="s9"><h2>Chapter 3 – MCQ Quiz</h2><div id="q3"></div></section>
+<section id="s10"><h2>Chapter 3 – Written Questions</h2><div id="w3"></div></section>
+<section id="s11"><h2>Chapter 4 – Loops</h2>
+<div class="box def"><b class="t">Loop:</b> executes statements repeatedly until a condition is met, or a set number of times (variable loop and fixed loop). A loop has two segments: the <b>body</b> and the <b>control statement</b> that checks the condition.</div>
+<table><tr><th>Entry controlled</th><th>Exit controlled</th></tr><tr><td>Test first, then body. May run zero times. <b>while</b> and <b>for</b>.</td><td>Body first, then test. Runs <b>at least once</b>. <b>do-while</b>.</td></tr></table>
+<div class="box warn">A wrong test condition gives an <b>infinite loop</b>: the control never leaves the loop.</div>
+<h3>4.1 while</h3>
+<pre>while (test condition)
+{
+  body of the loop;
+}</pre>
+<p>Steps: initialise the counter, check the condition, execute the body, increment the counter and check again. Braces are needed for more than one statement. Counters can also decrement, and can be real. The condition must become false at some point.</p>
+<div class="box ex"><b class="t">Sum of first ten numbers:</b> sum=0; i=1; <code>while(i&lt;=10){ sum=sum+i; i++; }</code> prints 55. Counting down: i=10; <code>while(i&gt;=1){sum=sum+i; i=i-1;}</code> also gives 55.</div>
+<div class="box warn">Infinite loop example: setting <code>i = 1</code> inside the body resets the counter each time, so <code>i&lt;=10</code> is always true.</div>
+<p><b>Odd loop (variable loop):</b> repeats while the user answers 'Y' (<code>while(ans=='Y')</code> with <code>getche()</code>); the count is not known in advance. Loop tests can use && and ||, e.g. <code>while((i&lt;=10)&amp;&amp;(a&gt;b))</code>.</p>
+<h3>4.2 do-while</h3>
+<pre>do
+{
+  body of the loop;
+}
+while (test condition);</pre>
+<p>Only difference from while: the body runs once before the first test. Note the semicolon after the condition. Example: product of 1 to 10 (prod=1, i=1; prod=prod*i; i++ while i&lt;=10) = 3628800.</p>
+<h3>4.3 Nested while</h3>
+<p>The inner loop runs fully for each outer pass. Five outer passes × five inner passes print five rows of *****.</p>
+<h3>4.4 for</h3>
+<pre>for (initialisation; test-condition; increment)
+{
+  body of the loop;
+}</pre>
+<p>Initialisation (i = 1) runs once; the test is checked before each pass; the increment runs after each pass. Semicolons separate the parts; <b>no semicolon</b> after the increment or after the closing parenthesis. <code>for(i=1;i&lt;=5;i++)</code> prints 1 to 5.</p>
+<ul><li>May decrement the counter</li><li>Sections can be omitted but the semicolons stay: <code>for(;i&lt;=10;)</code>. No test condition = infinite loop</li><li>Several initialisations or increments separated by commas: <code>for(k=1,i=1; ...; i++, p=p+1)</code></li><li><code>for(i=0; ++i&lt;=10;)</code> increments and compares together</li><li>The test may be compound: <code>i&lt;=10 &amp;&amp; sum&lt;100</code></li></ul>
+<h3>4.5 Nested for</h3>
+<pre>for(i=1;i&lt;=5;i++)
+{
+  for(j=1;j&lt;=5;j++)
+  { printf("*"); }
+  printf("\n");
+}</pre>
+<p>j restarts at 1 for every i; printf("\n") ends each row.</p>
+<h3>4.6 break and continue</h3>
+<table><tr><th>break</th><th>continue</th></tr><tr><td>Exits the loop at once; control goes to the statement after the loop. Also ends a case in switch.</td><td>Skips the rest of the body and starts the next iteration. In for, the counter is incremented, then the test is checked; in while/do-while the test is checked.</td></tr></table>
+<div class="box ex"><b>continue:</b> read numbers until 0; <code>if(num%2==0) continue;</code> skips even numbers, so only odd numbers are printed.</div>
+<div class="box note">PDF slips: the book writes <code>i = i ++;</code> (use <code>i++;</code> or <code>i = i + 1;</code>) and a stray <code>;</code> after <code>while(...)</code> in the getchar example, which would make an empty loop.</div></section>
+<section id="s12"><h2>Chapter 4 – MCQ Quiz</h2><div id="q4"></div></section>
+<section id="s13"><h2>Chapter 4 – Written Questions</h2><div id="w4"></div></section>
+<section id="s14"><h2>Chapter 5 – C++ Programming Language</h2>
+<h3>5.1 Object-oriented ideas</h3>
+<p>A C++ program is a collection of objects that communicate by calling each other's methods.</p>
+<table><tr><th>Term</th><th>Meaning</th></tr><tr><td>Object</td><td>Has states and behaviours (a dog: colour, name, breed; wagging, barking). An instance of a class.</td></tr><tr><td>Class</td><td>A template or blueprint describing the states and behaviours of its objects.</td></tr><tr><td>Method</td><td>A behaviour; where logic is written and data manipulated.</td></tr><tr><td>Instance variables</td><td>Each object's own variables; their values make the object's state.</td></tr></table>
+<h3>5.2 Program structure</h3>
+<pre>#include &lt;iostream&gt;
+using namespace std;
+// main() is where program execution begins.
+int main()
+{
+  cout &lt;&lt; "Hello World";   // prints Hello World
+  return 0;
+}</pre>
+<ul><li><b>Header</b> &lt;iostream&gt; is needed for cout.</li><li><code>using namespace std;</code> tells the compiler to use the std namespace.</li><li><code>//</code> single-line comment; <code>/* */</code> multi-line comment.</li><li><code>int main()</code> is where execution begins; <code>cout &lt;&lt;</code> displays output; <code>endl</code> (manipulator) ends a line; <code>return 0;</code> ends main and returns 0.</li></ul>
+<div class="box ex"><b>Exercise 1:</b> print "Oh what / a happy day! / Oh yes, / what a happy day!" using separate <code>cout &lt;&lt; "..." &lt;&lt; endl;</code> lines.</div>
+<h3>5.3 Keywords, comments, data types</h3>
+<p>Standard C++ has <b>74 keywords</b> (and, asm, auto, bool, break, case, catch, char, class, const, continue, default, delete, do, double, else, enum, extern, float, for, friend, goto, if, inline, int, long, namespace, new, private, protected, public, return, short, signed, sizeof, static, struct, switch, template, this, throw, true, try, typedef, union, unsigned, virtual, void, volatile, wchar_t, while ... and more). Keywords are reserved.</p>
+<table><tr><th>Type</th><th>Keyword / description</th></tr><tr><td>Boolean</td><td>bool: true or false</td></tr><tr><td>Character</td><td>char: typically one byte, an integer type</td></tr><tr><td>Integer</td><td>int: natural integer size for the machine</td></tr><tr><td>Floating point</td><td>float: single precision</td></tr><tr><td>Double floating point</td><td>double: double precision</td></tr><tr><td>Valueless</td><td>void: absence of type</td></tr><tr><td>Wide character</td><td>wchar_t</td></tr></table>
+<h3>5.4 Variables and literals</h3>
+<p><b>Local variables</b> are declared inside a function or block and are usable only there. <b>Global variables</b> are declared outside functions and can be used by any function throughout the program. Example: <code>int a, b, c; a=10; b=20; c=a+b; cout &lt;&lt; c;</code> prints 30.</p>
+<p>Character literals use single quotes: 'x', escape sequences such as '\t' and '\n'. A literal starting with <b>L</b> (uppercase) such as L'x' is a wide character stored in <code>wchar_t</code>. Example: <code>cout &lt;&lt; "Hello\tWorld\n\n";</code></p>
+<h3>5.5 Operators</h3>
+<p>Arithmetic, relational, logical, bitwise, assignment and misc operators. With A = 10 and B = 20: A+B = 30, A-B = -10, A*B = 200, B/A = 2, B%A = 0, A++ gives 11, A-- gives 9. With m=54, n=20: m+n=74, m-n=34, m*n=1080, m/n=2, m%n=14.</p>
+<ul><li>++i: increment first, then use the value. i++: use the original value, then increment. Cannot be used on constants.</li><li>Compound assignment: <code>x += y; x *= y; x /= y;</code></li><li>Math functions (include &lt;cmath&gt;): sin, cos, tan, atan, cosh, sqrt, pow, exp, log, log10. <code>pow(2.5, 3.0)</code> = 15.625. <code>pow(x+3.0)</code> is an error: pow needs two arguments.</li><li>A function call is an expression whose value is the return value: <code>y = pow(x, 3.0);</code></li></ul>
+<h3>5.6 Control statements and loops</h3>
+<ul><li><b>while</b> repeats while the condition is true. <b>for</b>: init runs once; condition tested; body; increment; repeat. <b>do...while</b> tests at the bottom, so it runs at least once: <code>do { cout &lt;&lt; a; a = a + 1; } while (a &lt; 20);</code></li><li><b>break</b> ends the loop (the innermost one in nested loops) and ends a switch case. <b>continue</b> forces the next iteration.</li><li><b>goto</b> jumps to a label in the same function; highly discouraged because control flow is hard to trace.</li><li><b>Infinite loop:</b> a loop whose condition never becomes false, e.g. <code>for(;;)</code>.</li><li><b>if...else if...else:</b> an if has zero or one else, which comes last; any number of else-ifs come before it; once one succeeds the rest are not tested.</li><li><b>switch:</b> expression must be integral or enumerated; constants must match its type; execution runs until a break (fall-through otherwise); default is optional and last.</li></ul>
+<h3>5.7 Arrays</h3>
+<p>An array stores a fixed-size sequence of elements of the same type in contiguous memory; elements are reached by index starting at 0.</p>
+<pre>double balance[10];                          // declare
+double balance[5] = {1000.0, 2.0, 3.4, 17.0, 50.0};
+double balance[] = {1000.0, 2.0, 3.4, 17.0, 50.0}; // same
+balance[4] = 50.0;
+double salary = balance[9];   // 10th element</pre>
+<ul><li>Values in braces cannot outnumber the declared size.</li><li><b>char arrays</b> hold strings ended by '\0': <code>char name[] = "Hugo";</code> uses 5 bytes. A char array of 40 holds 39 characters plus '\0'.</li><li>C strings cannot be assigned or compared with = or ==; use <code>strcpy(str1, str2)</code>, strlen(), strcmp().</li><li><b>Two-dimensional array:</b> <code>float number[3][10];</code> is 3 rows × 10 columns (30 elements); <code>number[0][9] = 7.2;</code> is row 0, column 9. Only the first size may be omitted: <code>int arr[][3] = {{5},{7}};</code></li></ul>
+<h3>5.8 Exercises in the book</h3>
+<p>Output text with endl; sum and difference of 123.456 and 76.543; square roots of 4, 12.25, 0.0121 with sqrt(); 20 random numbers (srand, rand); multiplication table; number-guessing game (3 attempts, 1 to 15); sorting up to 100 integers (bubble sort); primes below 1000 (Sieve of Eratosthenes); quadratic roots; triangle pattern; menu calculator.</p></section>
+<section id="s15"><h2>Chapter 5 – MCQ Quiz</h2><div id="q5"></div></section>
+<section id="s16"><h2>Chapter 5 – Written Questions</h2><div id="w5"></div></section>
+<section id="s17"><h2>Revision</h2>
+<p><button class="btn" id="showsc">Show my quiz scores</button></p><div id="scores" class="box note" style="display:none"></div>
+<table><tr><th>Chapter</th><th>Remember</th></tr>
+<tr><td>1</td><td>Algorithm = instructions in order. Flowchart = symbolic picture of a solution. Program vs system flowcharts. One START and one STOP. Fixed vs variable loop.</td></tr>
+<tr><td>2</td><td>C: Bell Labs 1972, Ritchie, 32 keywords. main(), ; and /* */. .c → .obj → .exe. int/float/char/double. 10/4=2, 9/4.0=1.75. ++a vs a++. #define has no semicolon.</td></tr>
+<tr><td>3</td><td>if, if-else, nested, ladder, switch (break!), goto (avoid). Priority: ! then arithmetic, relational, &amp;&amp;, ||, =.</td></tr>
+<tr><td>4</td><td>while/for = entry controlled; do-while = exit controlled (runs once). for(init;test;inc). break exits, continue skips.</td></tr>
+<tr><td>5</td><td>cout &lt;&lt;, cin &gt;&gt;, #include &lt;iostream&gt;, using namespace std, // comments. 74 keywords. Arrays start at 0; strings end with '\0'.</td></tr></table></section>
+</main>
+<script>
+var names=["Home","Ch1 Notes","Ch1 MCQ","Ch1 Written","Ch2 Notes","Ch2 MCQ","Ch2 Written","C Tasks","Ch3 Notes","Ch3 MCQ","Ch3 Written","Ch4 Notes","Ch4 MCQ","Ch4 Written","Ch5 Notes","Ch5 MCQ","Ch5 Written","Revision"],seen={},qdone={};
+var M1=[
+["What is a flowchart?",["A programming language","A symbolic representation of a solution to a task","A kind of compiler","A data type"],1,"A flowchart is a symbolic representation of a solution to a given task."],
+["Who normally uses program flowcharts?",["System analysts","Programmers","Operators","Typists"],1,"Programmers use program flowcharts; system analysts use system flowcharts."],
+["Which body standardised flowchart symbols?",["ISO","IEEE","ANSI","ASCII"],2,"The symbols were standardised by the American National Standards Institute."],
+["Which symbol branches the path based on a result?",["Process","Decision","Terminal","Connector"],1,"The decision symbol holds the criterion and branches on its result."],
+["How many START and STOP terminators may a flowchart have?",["One each","Two each","As many as needed","None"],0,"There can be only one START and one STOP."],
+["What does a connector look like and do?",["A diamond that decides","A circle with a letter or digit linking parts of a chart","A box doing arithmetic","A line with arrow"],1,"Identically labelled circle connectors link sections or pages; they do no operation."],
+["Which belongs in a process symbol?",["Keyboard input","Addition of two values","Start","Page link"],1,"Arithmetic and data movement go in the process symbol."],
+["In a loop, which is NOT a general step?",["Initialise a counter","Test for completion","Increment the counter","Draw a connector"],3,"Loops set a counter, execute, test and increment."],
+["A loop that repeats until a condition is met is a...",["Fixed loop","Variable loop","Predefined loop","System loop"],1,"Variable loops repeat until a condition is met, so counts vary."],
+["Sum of first N numbers: what are S and I initially?",["S=1, I=0","S=0, I=1","S=N, I=1","S=0, I=0"],1,"S (sum) starts at 0 and counter I starts at 1."],
+["Marks 40, 30, 50 with pass mark 35 in all subjects. Result?",["Pass","Fail","Pause","Undefined"],1,"30 is below 35, so the student fails."],
+["Which is the normal flow direction?",["Bottom to top","Right to left","Top to bottom, left to right","Any direction"],2,"Normal flow is top to bottom and left to right."]];
+var M2=[
+["Who designed C, and where?",["Ritchie, Bell Labs","Ghalib, MIT","Thompson, IBM","Ritchie, Microsoft"],0,"C was designed by Dennis Ritchie at AT&T Bell Laboratories in 1972."],
+["How many keywords does C have?",["16","32","64","128"],1,"C has 32 keywords."],
+["Where does execution of a C program begin?",["First printf","main()","Last line","Any function"],1,"Execution begins at main(), which every program must have."],
+["Which comment is valid?",["// text","/* text */","<!-- text -->","# text"],1,"Comments are enclosed in /* and */ and cannot be nested."],
+["Which is a valid variable name?",["2sum","my var","Max_length","int"],2,"Names start with a letter; no blanks; not a keyword."],
+["Which is a valid real constant?",["35","35.89","3 5.89","35,89"],1,"Real constants need a decimal point and no commas or spaces."],
+["How is a character constant written?",["\"A\"","'A'","(A)","A"],1,"Single quotes enclose a character constant; double quotes make a string."],
+["With int p=10, q=4, p/q gives...",["2.5","2","3","4"],1,"Integer division truncates the decimal part."],
+["int a=9; float b=4.0; a/b gives...",["2","1","1.75","2.25"],2,"Mixed arithmetic yields a real value: 1.75."],
+["a=5; b=a++; What are b and a?",["b=6, a=6","b=5, a=6","b=5, a=5","b=6, a=5"],1,"Postfix assigns first, then increments."],
+["a=10, b=5; z=(a>b)?a:b; z is...",["5","10","1","0"],1,"a>b is true, so exp2 (a) is taken: 10."],
+["Which is correct for a symbolic constant?",["#define PI 3.14;","# define PI 3.14","#define PI 3.14","define PI = 3.14"],2,"No semicolon and no space between # and define."]];
+var W1=[
+["Explain what a flowchart is and why it is drawn before coding.","A flowchart is a symbolic representation of a solution to a task. Drawn first, it shows the program logic sequence, lets you trace and detect logical errors before writing code, and lets you focus on logic first and language statements later."],
+["Compare program flowcharts and system flowcharts.","Program flowcharts are used by programmers to show program structure, logic flow, inputs, calculations, decisions, loops and outputs, with emphasis on logic. System flowcharts are used by system analysts to show processes, sub-systems, outputs and operations on data."],
+["Describe six flowchart symbols and their uses.","Terminal: START/STOP (one each). Input/Output: input or output functions. Process: arithmetic and data movement. Decision: branching on a condition. Flowlines: show order of flow. Connector: circle with a label linking parts or pages."],
+["State the rules to follow when using symbols.","Do not change a symbol's shape; size may change; symbols must be immediately recognisable; details legible; flowlines should not cross where possible."],
+["Explain fixed and variable loops, with the steps in a loop.","A fixed loop repeats a fixed number of times; a variable loop repeats until a condition is met. A loop sets and initialises a counter, executes operations, tests for completion and increments the counter."],
+["Describe the steps of the flowchart to find the sum of the first N numbers.","Start; create S, N, I; read N; set S=0; set I=1; S=S+I; increment I; if I<=N repeat; print S; stop."]];
+var W2=[
+["List the main features of C.","Developed at Bell Labs in 1972 by Dennis Ritchie; robust; rich built-in functions; simple to learn; suitable for system and application software; between high and low level; highly portable; strongly associated with Unix."],
+["Explain each part of the first C program.","main() starts execution; { } enclose the body; /* */ are comments ignored by the compiler; printf prints output; \\n gives a new line; each statement ends with a semicolon."],
+["Describe the steps to execute a C program.","Write and save with .c; compile (syntax errors stop compilation and must be fixed); object file .obj is created; link to produce .exe; run it by typing its name."],
+["Compare constants and variables, and 'a' with \"a\".","A constant never changes during execution; a variable names a memory location and can change. 'a' is a single character constant with an ASCII value; \"a\" is a string constant with no integer value."],
+["Explain integer, real and mixed-mode arithmetic with examples.","Integer with integer gives integer (10/4 = 2). Real with real gives real (10.0/4.0 = 2.5). Mixed gives real (9/4.0 = 1.75). % cannot be used with real operands."],
+["Explain the difference between ++a and a++ and the conditional operator.","With a=5, b=++a gives 6 (increment then assign); b=a++ gives 5 (assign then increment). exp1?exp2:exp3 evaluates exp1; if non-zero the value is exp2, otherwise exp3."]];
+var T=[
+["1. Print a message","Print: My first C program","main()\n{\n  printf(\"\\nMy first C program\");\n}","Output: My first C program. \\n begins a new line; the statement ends with a semicolon."],
+["2. Sum of three numbers","Declare a, b, c, sum as int, assign 30, 50, 85 and print the sum. Output: 165","main()\n{\n  int a, b, c, sum;\n  a = 30; b = 50; c = 85;\n  sum = a + b + c;\n  printf(\"\\nThe sum is : %d\", sum);\n}","%d prints an integer. The right side is evaluated first, then assigned."],
+["3. Area of a rectangle with scanf","Read length and breadth as floats and print the area. Input: 10.0 25.0. Output: Area = 250.000000","main()\n{\n  float len, breadth, area;\n  printf(\"\\nEnter length and breadth\\n\");\n  scanf(\"%f\", &len);\n  scanf(\"%f\", &breadth);\n  area = len * breadth;\n  printf(\"Area = %f\", area);\n}","%f is for floats, and & goes before each variable in scanf."],
+["4. Sum of digits of a two-digit number","Input: 83. Output: 11","main()\n{\n  int a, b, c, sum;\n  printf(\"\\nEnter a two digit number:\");\n  scanf(\"%d\", &a);\n  c = a / 10;\n  b = a % 10;\n  sum = c + b;\n  printf(\"\\nThe sum of digits is : %d\", sum);\n}","Integer division gives the tens digit (8); % gives the remainder, the ones digit (3)."],
+["5. Fahrenheit to Celsius","Input: 100.0. Output: 37.777779","main()\n{\n  float faren, cel;\n  printf(\"\\nEnter temperature in Fahrenheit:\");\n  scanf(\"%f\", &faren);\n  cel = (faren - 32.0) / 9 * 5;\n  printf(\"\\nThe temperature in Celsius is : %f\", cel);\n}","Parentheses force the subtraction first; then / and * are applied left to right."]];
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;")}
+function show(i){for(var k=0;k<names.length;k++){document.getElementById("s"+k).className=k==i?"on":"";nav.children[k].className=(k==i?"on ":"")+(seen[k]?"done":"")}seen[i]=1;upd();window.scrollTo(0,0)}
+function upd(){var n=0;for(var k in seen)n++;fill.style.width=(n/names.length*100)+"%";for(var k=0;k<names.length;k++)if(seen[k]&&nav.children[k].className.indexOf("done")<0)nav.children[k].className+=" done"}
+function quiz(id,D){var el=document.getElementById(id),sc=0,ans=0;function draw(){sc=0;ans=0;var h="";D.forEach(function(q,i){h+='<div class="q"><b>Q'+(i+1)+'.</b> '+esc(q[0]);q[1].forEach(function(o,j){h+='<button class="opt" data-q="'+i+'" data-o="'+j+'">'+"ABCD"[j]+". "+esc(o)+"</button>"});h+='<div class="exp" id="'+id+'e'+i+'"></div></div>'});h+='<div class="score" id="'+id+'s"></div><p style="text-align:center"><button class="btn" id="'+id+'r">Restart quiz</button></p>';el.innerHTML=h;el.onclick=function(e){var b=e.target.closest(".opt");if(!b||b.disabled)return;var i=+b.dataset.q,o=+b.dataset.o,q=D[i];[].forEach.call(el.querySelectorAll('[data-q="'+i+'"]'),function(x){x.disabled=true;if(+x.dataset.o==q[2])x.classList.add("ok")});var ok=o==q[2];if(ok)sc++;else b.classList.add("bad");ans++;var ex=document.getElementById(id+"e"+i);ex.style.display="block";ex.innerHTML=(ok?"✅ Correct. ":"❌ Incorrect. ")+esc(q[3]);if(ans==D.length){document.getElementById(id+"s").textContent="Final score: "+sc+" / "+D.length;qdone[id]=sc+" / "+D.length}};document.getElementById(id+"r").onclick=function(){draw();window.scrollTo(0,0)}}draw()}
+function qa(id,D,label){var h="";D.forEach(function(q,i){h+="<p><b>"+label+(i+1)+".</b> "+esc(q[0])+"</p><details><summary>Show suggested answer</summary><p>"+esc(q[1])+"</p></details>"});document.getElementById(id).innerHTML=h}
+nav=document.getElementById("nav");fill=document.getElementById("fill");
+names.forEach(function(n,i){var b=document.createElement("button");b.textContent=n;b.onclick=function(){show(i)};nav.appendChild(b)});
+quiz("q1",M1);quiz("q2",M2);qa("w1",W1,"Q");qa("w2",W2,"Q");
+var th="";T.forEach(function(t){th+="<h3>"+esc(t[0])+"</h3><p>"+esc(t[1])+"</p><details><summary>Show solution and explanation</summary><pre>"+esc(t[2])+"</pre><p>"+esc(t[3])+"</p></details>"});document.getElementById("tasks").innerHTML=th;
+show(0);
+</script>
+<script>
+var M3=[
+["After an if block that is true, which statement also runs?",["None","Statement-a after the block","Only the else","Nothing more"],1,"The statement after the if construct always runs."],
+["What is needed to put several statements under one if?",["Brackets ( )","Braces { }","Quotes","Colons"],1,"Without braces only one statement follows the if."],
+["In if-else, how many blocks run?",["Both","Exactly one","Neither","Two or more"],1,"Either the if block or the else block runs."],
+["In an if-else ladder, conditions are tested...",["Bottom up","Randomly","Top down","All at once"],2,"The first true condition runs and control leaves the ladder."],
+["Which operator has the highest priority?",["&&","!","+","=="],1,"! (NOT) is at the top of the hierarchy."],
+["Which gives the lowest priority?",["||","&&","=","<"],2,"Assignment (=) is last."],
+["What does a missing break in a case cause?",["Compile error","Following cases also run","Loop restarts","Nothing"],1,"Fall-through runs the next cases and default."],
+["Which is optional in switch?",["case","switch expression","default","braces"],2,"default is optional."],
+["The switch expression must give...",["A real number","A string","An integer value","A list"],2,"It must yield an integer value (characters are allowed in cases)."],
+["Which functions need #include <ctype.h>?",["printf, scanf","isalpha, isdigit","getchar only","exit"],1,"isalpha and isdigit are in ctype.h."],
+["A goto label is followed by...",["A semicolon","A comma","A colon","A bracket"],2,"The label is a valid name followed by a colon."],
+["Why should goto be avoided?",["It is slow","Programs become unreadable and hard to debug","It is illegal","It needs braces"],1,"Other constructs can replace it."]];
+var M4=[
+["Which loop runs its body at least once?",["while","for","do-while","if"],2,"do-while is exit controlled."],
+["while and for are...",["Exit controlled","Entry controlled","Unconditional","Fixed only"],1,"They test before the body."],
+["The two segments of a loop are...",["Header and footer","Body and control statement","Input and output","Init and end"],1,"Body plus the control statement."],
+["i=1; while(i<=10){sum+=i; i++;} gives sum =",["45","55","10","66"],1,"1+2+...+10 = 55."],
+["Resetting the counter inside a while body causes...",["Faster loop","An infinite loop","A compile error","Nothing"],1,"The condition stays true forever."],
+["Which has a semicolon after the closing condition?",["while","for","do-while","if"],2,"do { } while (condition);"],
+["In for(i=1;i<=5;i++), how often does i=1 run?",["5","6","Once","Never"],2,"Initialisation runs once."],
+["Omitting the test in a for gives...",["A syntax error","An infinite loop","A single pass","No loop"],1,"No test condition means it never ends."],
+["break in a loop...",["Skips one pass","Exits the loop","Restarts it","Ends the program"],1,"Control goes to the statement after the loop."],
+["continue in a for loop...",["Exits","Skips the rest of the body, then increments and tests","Restarts at 1","Ends the program"],1,"The counter is incremented, then the test is checked."],
+["Nested 5 × 5 loops printing * give how many rows?",["1","5","25","10"],1,"Five rows of *****."],
+["Which statement type is the 'odd loop'?",["Fixed loop","Variable loop","Nested for","goto"],1,"The number of repeats is not known in advance."]];
+var M5=[
+["A class is...",["An object","A blueprint for objects","A method","A variable"],1,"A class is a template describing states and behaviours."],
+["Which header is needed for cout?",["<stdio.h>","<iostream>","<ctype.h>","<cmath>"],1,"<iostream> provides cout."],
+["How is a single-line comment written in C++?",["/* */","//","<!-- -->","#"],1,"// to the end of the line."],
+["How many keywords does standard C++ have?",["32","50","74","100"],2,"The book states 74."],
+["What does return 0; do in main()?",["Prints 0","Ends main and returns 0","Loops","Declares"],1,"It terminates main and returns 0 to the caller."],
+["A variable declared inside a function is...",["Global","Local","Static only","Constant"],1,"Local variables are known only in their block."],
+["With A=10, B=20, B % A =",["2","0","10","30"],1,"20 divided by 10 leaves 0."],
+["Array element indices start at...",["1","0","-1","Any"],1,"balance[0] is the first element."],
+["char name[] = \"Hugo\"; occupies how many bytes?",["4","5","6","3"],1,"Four letters plus the null character."],
+["Which is correct to copy a C string?",["str1 = str2;","strcpy(str1, str2);","str1 == str2;","copy(str1)"],1,"C strings cannot be assigned with =."],
+["float number[3][10] has how many elements?",["13","30","3","10"],1,"3 rows × 10 columns = 30."],
+["Which statement runs at least once in C++?",["for","while","do...while","switch"],2,"do...while tests at the bottom."]];
+var W3=[["Explain simple if and if-else with examples.","Simple if runs its block only when the test is true, then statement-a runs either way. If-else runs the if block when true and the else block when false; only one runs. Example: marks >= 40 prints pass, otherwise fail."],
+["What is an if-else ladder and when is it used?","A chain of ifs where each else has an associated if, used for multipath decisions. Conditions are tested top-down; the first true one runs and control leaves the ladder; if all are false the final else runs."],
+["How does a switch work, and what happens without break?","The integer expression is matched against each case constant; the matching block runs and break exits. Without break, the following cases and default also run. default is optional."],
+["Why is goto discouraged? Where may it be used?","It makes programs unreadable and hard to debug, and may cause infinite loops. It can restart input or leave a loop for odd conditions, but if, for, while and switch usually replace it."],
+["Explain the hierarchy of logical operators.","From highest to lowest: !, then * / %, + -, relational < <= > >=, then == !=, then &&, then ||, then assignment =."]];
+var W4=[["Compare entry controlled and exit controlled loops.","Entry controlled loops (while, for) test the condition before the body and may not run. Exit controlled loops (do-while) test after the body, so it runs at least once."],
+["Describe the parts of a for statement.","for (initialisation; test; increment): initialisation runs once, the test is checked before each pass, the increment runs after each pass. Semicolons separate them; none after the increment."],
+["What is an infinite loop and how does it arise?","A loop whose condition never becomes false, e.g. resetting the counter inside a while body, or omitting the test in a for."],
+["Explain break and continue.","break exits the loop at once. continue skips the rest of the body and starts the next iteration (in for, after the increment)."],
+["How do nested loops work? Give an example.","The inner loop runs completely for each pass of the outer loop. Two loops of 5 print five rows of five stars, with printf(\"\\n\") ending each row."]];
+var W5=[["Define object, class, method and instance variable.","An object has states and behaviours and is an instance of a class. A class is a blueprint. A method is a behaviour containing logic. Instance variables hold each object's state."],
+["Explain each line of the Hello World program.","#include <iostream> gives cout; using namespace std uses the std namespace; // is a comment; int main() starts execution; cout << prints; return 0; ends main."],
+["Compare local and global variables.","Local variables are declared inside a function or block and used only there. Global variables are declared outside and usable by every function after the declaration."],
+["How are arrays declared, initialised and accessed?","type name[size]; initialise with {values}, not more than the size; access by index from 0, e.g. balance[4] = 50.0; salary = balance[9]."],
+["How are strings stored in C and C++ char arrays?","As characters ending with '\\0', so \"Hugo\" needs 5 bytes. They are copied with strcpy, not =."]];
+quiz("q3",M3);quiz("q4",M4);quiz("q5",M5);qa("w3",W3,"Q");qa("w4",W4,"Q");qa("w5",W5,"Q");
+var T2=[["6. Even or odd (Ch 3)","Read a number and print whether it is even or odd.","main()\n{\n  int num;\n  printf(\"\\nEnter any number:\");\n  scanf(\"%d\", &num);\n  if (num % 2 == 0)\n    printf(\"\\nThe number is even\");\n  else\n    printf(\"\\nThe number is odd\");\n}","20 gives even, 3 gives odd, using % and if-else."],
+["7. Sum of first ten numbers (Ch 4)","Use a while loop. Output: The sum is 55","main()\n{\n  int i, sum;\n  sum = 0;\n  i = 1;\n  while (i <= 10)\n  {\n    sum = sum + i;\n    i++;\n  }\n  printf(\"\\nThe sum is %d\", sum);\n}","Initialise, test, add, increment; ends when i becomes 11."],
+["8. Star square (Ch 4)","Print five rows of five stars with nested for loops.","main()\n{\n  int i, j;\n  for (i = 1; i <= 5; i++)\n  {\n    for (j = 1; j <= 5; j++)\n    {\n      printf(\"*\");\n    }\n    printf(\"\\n\");\n  }\n}","The inner loop prints one row; printf(\"\\n\") starts the next."],
+["9. Hello in C++ (Ch 5)","Print Hello World using cout.","#include <iostream>\nusing namespace std;\nint main()\n{\n  cout << \"Hello World\" << endl;\n  return 0;\n}","iostream gives cout; << sends text to the screen."]];
+var th2="";T2.forEach(function(t){th2+="<h3>"+esc(t[0])+"</h3><p>"+esc(t[1])+"</p><details><summary>Show solution and explanation</summary><pre>"+esc(t[2])+"</pre><p>"+esc(t[3])+"</p></details>"});document.getElementById("tasks").innerHTML+=th2;
+document.getElementById("showsc").onclick=function(){var o="",k,l={q1:"Ch1",q2:"Ch2",q3:"Ch3",q4:"Ch4",q5:"Ch5"};for(k in l)o+="<b>"+l[k]+":</b> "+(qdone[k]||"not finished")+"<br>";var e=document.getElementById("scores");e.innerHTML=o;e.style.display="block"};
+var sr=document.getElementById("srch");sr.oninput=function(){var q=sr.value.toLowerCase();for(var k=0;k<names.length;k++){var m=q.length>1&&document.getElementById("s"+k).textContent.toLowerCase().indexOf(q)>=0;nav.children[k].classList.toggle("hit",m)}};sr.onkeydown=function(e){if(e.key=="Enter"){var h=nav.querySelector(".hit");if(h)h.click()}};
+</script>
+</body></html>
